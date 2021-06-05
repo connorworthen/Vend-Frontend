@@ -1,13 +1,14 @@
 const signupUrl = "http://localhost:3000/signup";
 
 class User {
-  constructor(first, last, email, phone, address, password) {
+  constructor(first, last, email, phone, address, password, id) {
     this.first = first
     this.last = last
     this.email = email
     this.phone = phone
     this.address = address
-    this.password
+    this.password = password
+    this.id = id
   }
 
   static renderSignupForm() {
@@ -30,5 +31,32 @@ class User {
           <input type="submit" class="form-button" value="Create Account">
       </form>
     `;
+  }
+
+  static postSignupForm(first, last, email, phone, address, password) {
+
+    let configObj = {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application/json'
+      },
+
+      body: JSON.stringify({    
+        user: {
+          first,
+          last, 
+          email, 
+          phone, 
+          address,
+          password
+        }  
+      })
+    };
+    debugger
+    fetch(signupUrl, configObj)
+      .then((response) => response.json())
+      .then((userData) => {
+        console.log(userData)
+      })
   }
 }
