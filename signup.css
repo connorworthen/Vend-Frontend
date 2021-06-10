@@ -1,0 +1,85 @@
+.signupModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  width: 35%;
+  height: 100%;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.signupForm {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.formBox {
+  background: white;
+  width: 415px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.closeForm {
+  color: gray;
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.formTitle {
+  font-size: 24px;
+  padding: 10px 12px 10px 8px;
+  width: 95%;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 12px;
+}
+
+.formInput {
+  outline: 0;
+  font-weight: 500;
+  display: block;
+  background: white;
+  font-size: 0.875rem;
+  border: 1px solid lightgray;
+  height: 25px;
+  padding: 4px 4px 4px 7px;
+  margin-bottom: 10px;
+  margin: 8px;
+}
+
+.formButton {
+  color: #fff;
+  margin: 8px;
+  background-color: #da3743;
+  border-color: #b8222d;
+  border-style: solid;
+  cursor: pointer;
+  font-weight: 500;
+  border-width: 0;
+  line-height: normal;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  outline: 0;
+  border-radius: 3px;
+  display: inline-block;
+  height: 45px;
+}

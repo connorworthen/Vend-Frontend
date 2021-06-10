@@ -12,10 +12,11 @@ class User {
   }
 
   static renderSignupForm() {
-    document.getElementsByClassName("signup-form")[0].innerHTML = `
-      <h2>Create Account</h2>
+    document.getElementsByClassName("signupForm")[0].innerHTML = `
 
-      <form id="signupForm">
+      <form class="signupBox" id="signupBox">
+      <div class="closeForm">&times;</div>
+        <h2 class="formTitle">Welcome, sign up below!</h2>
 
           <div>
             <input type="text" id="first" placeholder="First Name *">
@@ -50,6 +51,10 @@ class User {
     //   let formValue = Array.from(document.querySelectorAll('input')).reduce((acc, input) => ({
     //   ...acc, [input.id]: input.value}), {})
     // }
+    document.querySelector(".closeForm").onclick = () => {
+      document.querySelector(".closeForm").style.display = "none";
+      document.getElementsByClassName("signupModal")[0].style.display = "none";
+    }
   }
 
   static postSignupForm(first, last, email, phone, address, password) {
@@ -77,10 +82,11 @@ class User {
       .then((userData) => {
         console.log(userData)
       })
+      document.getElementsByClassName("signupModal")[0].style.display = "none";
   }
 
   static signupFormHandler() {
-    document.getElementById("signupForm").onsubmit = (e) => {
+    document.getElementById("signupBox").onsubmit = (e) => {
       e.preventDefault()
       User.postSignupForm(
         e.target['first'].value,
@@ -92,5 +98,13 @@ class User {
       )
         return false
     }
+  }
+
+  static createUser() {
+    document.getElementById("form-button-signup").onclick = () => {
+      User.renderSignupForm();
+      User.signupFormHandler();
+      document.getElementsByClassName("signupModal")[0].style.display = "block";
+    };
   }
 }
