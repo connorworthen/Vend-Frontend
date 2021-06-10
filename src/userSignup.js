@@ -13,24 +13,43 @@ class User {
 
   static renderSignupForm() {
     document.getElementsByClassName("signup-form")[0].innerHTML = `
-      <form>
-        <h2>Create Account</h2>
+      <h2>Create Account</h2>
 
-          <input type="text" id="first" placeholder="First Name *">
+      <form id="signupForm">
 
-          <input type="text" id="last" placeholder="Last Name *">
+          <div>
+            <input type="text" id="first" placeholder="First Name *">
+          </div>
 
-          <input type="text" id="email" placeholder="Email *">
+          <div>
+            <input type="text" id="last" placeholder="Last Name *">
+          </div>
 
-          <input type="text" id="phone" placeholder="Phone Number *">
+          <div>
+            <input type="text" id="email" placeholder="Email *">
+          </div>
 
-          <input type="text" id="address" placeholder="Address *">
+          <div>
+            <input type="text" id="phone" placeholder="Phone Number *">
+          </div>
 
-          <input type="password" id="password" placeholder="Password *">
+          <div>
+            <input type="text" id="address" placeholder="Address *">
+          </div>
 
-          <input type="submit" class="form-button" value="Create Account">
+          <div>
+            <input type="password" id="password" placeholder="Password *">
+          </div>
+
+          <input type="submit" id="form-box" value="Create Account">
       </form>
+
     `;
+    // document.getElementById("form-box").onsubmit = (e) => {
+    //   e.preventDefault()
+    //   let formValue = Array.from(document.querySelectorAll('input')).reduce((acc, input) => ({
+    //   ...acc, [input.id]: input.value}), {})
+    // }
   }
 
   static postSignupForm(first, last, email, phone, address, password) {
@@ -44,10 +63,10 @@ class User {
       body: JSON.stringify({    
         user: {
           first,
-          last, 
-          email, 
-          phone, 
-          address,
+          last,
+          email,
+          phone,
+          address, 
           password
         }  
       })
@@ -58,5 +77,20 @@ class User {
       .then((userData) => {
         console.log(userData)
       })
+  }
+
+  static signupFormHandler() {
+    document.getElementById("signupForm").onsubmit = (e) => {
+      e.preventDefault()
+      User.postSignupForm(
+        e.target['first'].value,
+        e.target['last'].value,
+        e.target['email'].value,
+        e.target['phone'].value,
+        e.target['address'].value,
+        e.target['password'].value
+      )
+        return false
+    }
   }
 }
