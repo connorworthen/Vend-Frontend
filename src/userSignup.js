@@ -1,6 +1,6 @@
 const signupUrl = "http://localhost:3000/signup";
 
-class User {
+class Signup {
   constructor(first, last, email, phone, address, password, id) {
     this.first = first
     this.last = last
@@ -76,7 +76,6 @@ class User {
         }  
       })
     };
-    debugger
     fetch(signupUrl, configObj)
       .then((response) => response.json())
       .then((userData) => {
@@ -88,7 +87,7 @@ class User {
   static signupFormHandler() {
     document.getElementById("signupBox").onsubmit = (e) => {
       e.preventDefault()
-      User.postSignupForm(
+      Signup.postSignupForm(
         e.target['first'].value,
         e.target['last'].value,
         e.target['email'].value,
@@ -102,9 +101,9 @@ class User {
 
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
-      User.renderSignupForm();
+      Signup.renderSignupForm();
       document.getElementsByClassName("signupModal")[0].style.display = "block"
-      User.signupFormHandler();
+      Signup.signupFormHandler();
     }
   }
 }
