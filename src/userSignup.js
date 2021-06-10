@@ -103,8 +103,8 @@ class User {
   static createUser() {
     document.getElementById("form-button-signup").onclick = () => {
       User.renderSignupForm();
+      document.getElementsByClassName("signupModal")[0].style.display = "block"
       User.signupFormHandler();
-      document.getElementsByClassName("signupModal")[0].style.display = "block";
-    };
+    }
   }
 }
