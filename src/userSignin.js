@@ -42,7 +42,7 @@ class Signin {
       })  
     };
 
-    fetch(loginUrl, configObj) 
+    fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((loginData) => {
         console.log(loginData)
@@ -52,7 +52,6 @@ class Signin {
 
   static signinUser() {
     document.getElementById("form-button-signin").onclick = () => {
-      console.log("hello")
       Signin.renderCurrentUser();
       Signin.signinFormHandler();
       document.getElementsByClassName("signin-modal")[0].style.display =
