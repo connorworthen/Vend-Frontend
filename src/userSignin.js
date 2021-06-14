@@ -46,6 +46,10 @@ class Signin {
       .then((response) => response.json())
       .then((loginData) => {
         console.log(loginData)
+        User.currentUser = new User(userData['user']["data"]["attributes"]["email"], userData['user']["data"]['id'])
+          localStorage.setItem('jwt_token', userData.jwt)
+          localStorage.setItem('user_id', User.currentUser.id)
+          localStorage.setItem('email', User.email)
       })
       document.getElementsByClassName("signin-modal")[0].style.display = "none";
   }

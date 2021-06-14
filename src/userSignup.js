@@ -1,4 +1,4 @@
-const signupUrl = "http://localhost:3000/signup";
+const signupUrl = "http://localhost:3000/users";
 
 class Signup {
   constructor(first, last, email, phone, address, password, id) {
@@ -78,8 +78,8 @@ class Signup {
     };
     fetch(signupUrl, configObj)
       .then((response) => response.json())
-      .then((userData) => {
-        console.log(userData)
+      .then((data) => {
+        localStorage.setItem("token", data.jwt)
       })
       document.getElementsByClassName("signupModal")[0].style.display = "none";
   }
