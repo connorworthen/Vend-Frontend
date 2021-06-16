@@ -1,4 +1,5 @@
 const signinUrl = "http://localhost:3000/login";
+const autoUrl = "http://localhost:3000/auto_login"
 
 class Signin {
   constructor(email, password, id) {
@@ -15,6 +16,7 @@ class Signin {
       document.getElementsByClassName("signinModal")[0].style.display = "none";
     }
     Signin.submitHandler();
+    // Signin.signedIn();
   }
 
   static submitHandler() {
@@ -50,5 +52,18 @@ class Signin {
         localStorage.setItem("token", data.jwt)   
       })
       document.getElementsByClassName("signinModal")[0].style.display = "none";
+  }
+
+  static signedIn() {
+    const token = localStorage.getItem("token")
+    if (token) {
+      fetch(autoUrl, token)
+        .then((response) => response.json())
+        .then((data) => {
+          console.log("token", data.jwt)
+        })
+    } else {
+      console.log("error: no token")
+    }
   }
 }
