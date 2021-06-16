@@ -1,4 +1,4 @@
-.signin-modal {
+.signinModal {
   display: none;
   position: fixed;
   z-index: 1;
@@ -11,7 +11,7 @@
   transform: translate(-50%, -50%);
 }
 
-.signin-form {
+.signinForm {
   position: relative;
   background-color: #fefefe;
   margin: auto;
@@ -25,7 +25,7 @@
   animation-duration: 0.4s;
 }
 
-.form-box-signin {
+.signinBox {
   background: white;
   width: 415px;
   display: flex;

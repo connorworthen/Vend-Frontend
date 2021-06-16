@@ -20,7 +20,7 @@
 
     <button id="signupButton">Sign up</button>
 
-    <button id="form-button-signin">Sign in</button>
+    <button id="signinButton">Sign in</button>
 
     <div class="signupModal">
       <div class="signupForm">
@@ -57,8 +57,19 @@
       </div>
     </div>
 
-    <div class="signin-modal">
-      <div class="signin-form"></div>
+    <div class="signinModal">
+      <div class="signinForm">
+        <form class="signinBox" id="signinBox">
+          <div class="closeSigninForm">&times;</div>
+          <h2 class="form-title-signin">Welcome back! Sign in below</h2>
+
+          <input type="text" id="email" />
+
+          <input type="password" id="password" />
+
+          <input type="submit" class="form-button-signin" value="Login" />
+        </form>
+      </div>
     </div>
   </nav>
 
