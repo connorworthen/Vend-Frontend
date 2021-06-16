@@ -49,12 +49,24 @@ class Signin {
     fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("token", data.jwt)   
+        localStorage.setItem("token", data.jwt)  
+        localStorage.setItem("first", data.user.first) 
       })
       document.getElementsByClassName("signinModal")[0].style.display = "none";
+      Signin.signedInProfile()
   }
 
-  static signedIn() {
+  static signedInProfile() {
+    let replace = document.getElementById("notSignedIn")
+      replace.remove()
+    let first = localStorage.getItem("first")
+    console.log(first)
+    document.getElementById("signedIn").innerHTML = `
+      <div>"+first+"<div>
+      `
+  }
+
+  static signedInCheck() {
     const token = localStorage.getItem("token")
     if (token) {
       fetch(autoUrl, token)
