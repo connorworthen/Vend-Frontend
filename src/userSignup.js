@@ -15,9 +15,10 @@ class Signup {
     signupButton.addEventListener('click', () => {
       document.getElementsByClassName("signupModal")[0].style.display = "block"
     })
-    // closeForm.addEventListener('click', () => {
-    //   document.querySelector("closeForm").style.display = "none";
-    // })
+    document.querySelector(".closeForm").onclick = () => {
+      document.getElementsByClassName("signupModal")[0].style.display = "none";
+    }
+    Signup.submitHandler();
   }
 
   static submitHandler() {
