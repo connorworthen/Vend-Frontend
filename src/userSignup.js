@@ -32,6 +32,7 @@ class Signup {
         e.target['address'].value,
         e.target['password'].value
       )
+      return false
     })
   }
 
