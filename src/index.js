@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  Signup.createUser();
+  Signup.signupHandler();
+  Signup.submitHandler();
   Signin.signinUser();
 });

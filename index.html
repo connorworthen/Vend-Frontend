@@ -18,12 +18,43 @@
       <h1>Vend</h1>
     </div>
 
-    <button id="form-button-signup">Sign up</button>
+    <button id="signupButton">Sign up</button>
 
     <button id="form-button-signin">Sign in</button>
 
     <div class="signupModal">
-      <div class="signupForm"></div>
+      <div class="signupForm">
+        <form class="signupBox" id="signupBox">
+          <div class="closeForm">&times;</div>
+          <h2 class="formTitle">Welcome, sign up below!</h2>
+
+          <div>
+            <input type="text" id="first" placeholder="First Name *" />
+          </div>
+
+          <div>
+            <input type="text" id="last" placeholder="Last Name *" />
+          </div>
+
+          <div>
+            <input type="text" id="email" placeholder="Email *" />
+          </div>
+
+          <div>
+            <input type="text" id="phone" placeholder="Phone Number *" />
+          </div>
+
+          <div>
+            <input type="text" id="address" placeholder="Address *" />
+          </div>
+
+          <div>
+            <input type="password" id="password" placeholder="Password *" />
+          </div>
+
+          <input type="submit" id="form-box" value="Create Account" />
+        </form>
+      </div>
     </div>
 
     <div class="signin-modal">
