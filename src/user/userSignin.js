@@ -8,17 +8,6 @@ class Signin {
     this.id = id
   }
 
-  static signinHandler() {
-    Signin.signedInCheck();
-    signinButton.addEventListener('click', () => {
-      document.getElementsByClassName("signinModal")[0].style.display = "block"
-    })
-    document.querySelector(".closeSigninForm").onclick = () => {
-      document.getElementsByClassName("signinModal")[0].style.display = "none";
-    }
-    Signin.submitHandler();
-  }
-
   static signedInCheck() {
     const token = localStorage.getItem("token")
     if (token) {
@@ -29,12 +18,21 @@ class Signin {
       })
         .then((response) => response.json())
         .then((data) => {
-          localStorage.setItem("first", data.first) 
           Signin.signedInProfile()
         })
     } else {
       console.log("No user Found")
     }
+  }
+
+  static signinHandler() {
+    signinButton.addEventListener('click', () => {
+      document.getElementsByClassName("signinModal")[0].style.display = "block"
+    })
+    document.querySelector(".closeSigninForm").onclick = () => {
+      document.getElementsByClassName("signinModal")[0].style.display = "none";
+    }
+    Signin.submitHandler();
   }
 
   static submitHandler() {
@@ -77,8 +75,6 @@ class Signin {
   static signedInProfile() {
     let replace = document.getElementById("notSignedIn")
       replace.remove()
-    let first = localStorage.getItem("first")
-    document.getElementById("signedIn").innerHTML = "Welcome, "+first+""
     document.getElementById("profile").innerHTML = `
       <span id="test"><i class="fas fa-user-circle"></i></span>
     `
@@ -87,8 +83,7 @@ class Signin {
 
   static profileDropdown() {
     profile.addEventListener('click', () => {
-      console.log('click')
-      document.getElementById("dropdown").innerHTML = `<div>hello</div>`
+      console.log('need dropdown for update profile/logout')
     })
   }
 }
