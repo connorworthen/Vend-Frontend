@@ -83,6 +83,12 @@ class Signin {
   static profileDropdown() {
     profile.addEventListener('click', () => {
       console.log('need dropdown for update profile/logout')
+      document.getElementById(".dropdown").innerHTML = `
+        <select id="test">
+          <option value="1">1</option>
+          <option value="2">2</option>
+        </select>
+      `
     })
   }
 }
