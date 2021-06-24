@@ -17,7 +17,7 @@ class Signin {
         }
       })
         .then((response) => response.json())
-        .then((data) => {
+        .then(() => {
           Signin.signedInProfile()
         })
     } else {
@@ -66,7 +66,6 @@ class Signin {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt)  
-        localStorage.setItem("first", data.user.first) 
       })
       document.getElementsByClassName("signinModal")[0].style.display = "none";
       Signin.signedInProfile()
@@ -74,7 +73,7 @@ class Signin {
 
   static signedInProfile() {
     let replace = document.getElementById("notSignedIn")
-      replace.remove()
+    replace.remove()
     document.getElementById("profile").innerHTML = `
       <span id="test"><i class="fas fa-user-circle"></i></span>
     `
