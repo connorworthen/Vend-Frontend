@@ -21,7 +21,7 @@ class Signin {
           Signin.signedInProfile()
         })
     } else {
-      console.log("No user Found")
+      document.getElementById("signedIn").style.display = "none"
     }
   }
 
@@ -72,23 +72,7 @@ class Signin {
   }
 
   static signedInProfile() {
-    let replace = document.getElementById("notSignedIn")
-    replace.remove()
-    document.getElementById("profile").innerHTML = `
-      <span id="test"><i class="fas fa-user-circle"></i></span>
-    `
-    Signin.profileDropdown()
-  }
-
-  static profileDropdown() {
-    profile.addEventListener('click', () => {
-      console.log('need dropdown for update profile/logout')
-      document.getElementById(".dropdown").innerHTML = `
-        <select id="test">
-          <option value="1">1</option>
-          <option value="2">2</option>
-        </select>
-      `
-    })
+    document.getElementById("notSignedIn").style.display = "none"
+    document.getElementById("signedIn").style.display = "block"
   }
 }
