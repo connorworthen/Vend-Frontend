@@ -33,13 +33,35 @@
         </div>
 
         <div id="signedIn">
-          <div id="profile" class="dropdown">
+          <div class="dropdown">
             <span class="dropbtn" id="test"><i class="fas fa-user-circle"></i></span>
 
                 <div class="dropdown-content">
-                  <a id="profile">Profile</a>
+                  <a id="profileBtn">Profile</a>
                   <a id="logout">Logout</a>
                 </div>
+          </div>
+
+          <div id="profileModal">
+            <div id="profileBox">
+              <form id="profileForm">
+                <div class="closeForm">&times;</div>
+                  <h2 class="formTitle">Update Profile</h2>                               
+                  <input type="text" id="first" value= />
+
+                  <input type="text" id="last" placeholder="Last Name *" />
+
+                  <input type="text" id="email" placeholder="Email *" />
+
+                  <input type="text" id="phone" placeholder="Phone Number *" />
+
+                  <input type="text" id="address" placeholder="Address *" />
+
+                  <input type="password" id="password" placeholder="Password *" />
+
+                  <input type="submit" id="form-box" value="Create Account" />
+              </form>
+            </div>
           </div>
         </div>
   
@@ -48,7 +70,7 @@
     <div class="signupModal">
       <div class="signupForm">
         <form class="signupBox" id="signupBox">
-          <div class="closeForm">&times;</div>
+          <div>&times;</div>
           <h2 class="formTitle">Welcome, sign up below!</h2>
 
           <div>
@@ -101,5 +123,6 @@
   <script src="src/user/userSignup.js"></script>
   <script src="src/user/userSignin.js"></script>
   <script src="src/user/userLogout.js"></script>
+  <script src="src/user/userProfile.js"></script>
   <script src="src/index.js"></script>
 </html>

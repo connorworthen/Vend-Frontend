@@ -3,4 +3,5 @@ document.addEventListener("DOMContentLoaded", () => {
   Logout.logoutMethod();
   Signup.signupHandler();
   Signin.signinHandler();
+  Profile.profileHandler()
 });

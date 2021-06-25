@@ -65,7 +65,8 @@ class Signin {
     fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("token", data.jwt)  
+        localStorage.setItem("token", data.jwt) 
+        localStorage.setItem("id", data.user.id)
       })
       document.getElementsByClassName("signinModal")[0].style.display = "none";
       Signin.signedInProfile()
@@ -74,5 +75,6 @@ class Signin {
   static signedInProfile() {
     document.getElementById("notSignedIn").style.display = "none"
     document.getElementById("signedIn").style.display = "block"
+    document.getElementById("profileModal").style.display = "none"
   }
 }
