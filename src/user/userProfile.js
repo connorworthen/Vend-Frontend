@@ -1,15 +1,15 @@
 const readUrl = "http://localhost:3000/users";
 
 class Profile {
-  // constructor(first, last, email, phone, address, password, id) {
-  //   this.first = first
-  //   this.last = last
-  //   this.email = email
-  //   this.phone = phone
-  //   this.address = address
-  //   this.password = password
-  //   this.id = id
-  // }
+  constructor(first, last, email, phone, address, password, id) {
+    this.first = first
+    this.last = last
+    this.email = email
+    this.phone = phone
+    this.address = address
+    this.password = password
+    this.id = id
+  }
 
   static grabUserData() {
     let id = localStorage.getItem("id")
@@ -26,7 +26,6 @@ class Profile {
     profileBtn.addEventListener('click', () => {
       document.getElementById("profileModal").style.display = "block"
       Profile.grabUserData()
-      Profile.submitHandler();
     })
   }
 
@@ -35,7 +34,7 @@ class Profile {
         <form id="profileForm">
                 <div class="closeForm">&times;</div>
                   <h2 class="formTitle">Update Profile</h2>                               
-                  <input type="text" id="firstUpdate" value=${userData.first} />
+                  <input type="text" id="first" value=${userData.first} />
 
                   <input type="text" id="last" value=${userData.last} />
 
@@ -50,10 +49,11 @@ class Profile {
                   <input type="submit" id="patchBox" value="Update Account" />
               </form>
       `
+      Profile.submitHandler();
   }
 
   static submitHandler() {
-    document.getElementById("patchBox").onsubmit = (e) => {
+    document.getElementById("profileForm").onsubmit = (e) => {
       e.preventDefault()
       Profile.patchUpdateForm(
         e.target['first'].value,
@@ -68,7 +68,8 @@ class Profile {
   }
 
   static patchUpdateForm(first, last, email, phone, address, password) {
-
+    let id = localStorage.getItem("id")
+    
     let configObj = {
       method: "PATCH",
       headers: {

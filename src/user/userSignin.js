@@ -65,7 +65,7 @@ class Signin {
     fetch(signinUrl, configObj) 
       .then((response) => response.json())
       .then((data) => {
-        localStorage.setItem("token", data.jwt) 
+        localStorage.setItem("token", data.jwt)
         localStorage.setItem("id", data.user.id)
       })
       document.getElementsByClassName("signinModal")[0].style.display = "none";
