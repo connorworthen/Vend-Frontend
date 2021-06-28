@@ -1,0 +1,45 @@
+.profileModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px;
+  width: 35%;
+  height: 100%;
+  overflow: auto;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.profileBox {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #888;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s;
+}
+
+.signinForm {
+  background: white;
+  width: 415px;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 20px;
+  border-radius: 5px;
+  text-align: center;
+}
+
+.closeProfile {
+  color: gray;
+  background-color: transparent;
+  border: none;
+  align-self: flex-end;
+  font-weight: bold;
+  cursor: pointer;
+}

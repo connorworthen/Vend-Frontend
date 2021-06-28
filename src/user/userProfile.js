@@ -24,16 +24,16 @@ class Profile {
 
   static profileHandler() {
     profileBtn.addEventListener('click', () => {
-      document.getElementById("profileModal").style.display = "block"
+      document.getElementsByClassName("profileModal")[0].style.display = "block"
       Profile.grabUserData()
     })
   }
 
   static displayForm(userData) {
-    document.getElementById("profileBox").innerHTML = `
+    document.getElementsByClassName("profileBox")[0].innerHTML = `
         <form id="profileForm">
-                <div class="closeForm">&times;</div>
-                  <h2 class="formTitle">Update Profile</h2>                               
+                <div class="closeProfile">&times;</div>
+                  <h2>Update Profile</h2>                               
                   <input type="text" id="first" value=${userData.first} />
 
                   <input type="text" id="last" value=${userData.last} />
@@ -42,13 +42,16 @@ class Profile {
 
                   <input type="text" id="phone" value=${userData.phone} />
 
-                  <input type="text" id="address" value=${userData.address}/>
+                  <input type="text" id="address" value=${userData.address} />
 
                   <input type="password" id="password" value=${userData.password} />
 
                   <input type="submit" id="patchBox" value="Update Account" />
               </form>
       `
+      document.querySelector(".closeProfile").onclick = () => {
+        document.getElementsByClassName("profileModal")[0].style.display = "none";
+      }
       Profile.submitHandler();
   }
 
@@ -69,7 +72,7 @@ class Profile {
 
   static patchUpdateForm(first, last, email, phone, address, password) {
     let id = localStorage.getItem("id")
-    
+
     let configObj = {
       method: "PATCH",
       headers: {
