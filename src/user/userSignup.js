@@ -26,17 +26,21 @@ class Signup {
       
         const response = await fetch(signupUrl, configObj)
         const payload = await response.json()
-        console.log(payload, "success")
-      } catch (e) {
-        console.log(e, "failed")
+        localStorage.setItem("token", payload.jwt)
+        localStorage.setItem("id", payload.user.id)
+        Signup.signedInView()
+      } catch (err) {
+        console.log(err)
+        alert("Error. Set up Alert Messages")
       }
     })
   }
+
+  static signedInView() {
+    document.getElementsByClassName("signupModal")[0].style.display = "none";
+    document.getElementById("notSignedIn").style.display = "none"
+    document.getElementById("signedIn").style.display = "block"
+    document.getElementById("profileModal").style.display = "none"
+  }
 }
-
-
-// document.getElementsByClassName("signupModal")[0].style.display = "none";
-//     document.getElementById("notSignedIn").style.display = "none"
-//     document.getElementById("signedIn").style.display = "block"
-//     document.getElementById("profileModal").style.display = "none"
 
