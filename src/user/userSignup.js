@@ -1,16 +1,6 @@
 const signupUrl = "http://localhost:3000/users";
 
 class Signup {
-  constructor(first, last, email, phone, address, password, id) {
-    this.first = first
-    this.last = last
-    this.email = email
-    this.phone = phone
-    this.address = address
-    this.password = password
-    this.id = id
-  }
-
   static signupHandler() {
     signupButton.addEventListener('click', () => {
       document.getElementsByClassName("signupModal")[0].style.display = "block"
@@ -18,52 +8,34 @@ class Signup {
     document.querySelector(".closeForm").onclick = () => {
       document.getElementsByClassName("signupModal")[0].style.display = "none";
     }
-    Signup.submitHandler();
+    Signup.postSignupForm()
   }
 
-  static submitHandler() {
-    signupBox.addEventListener('submit', (e) => {
-      e.preventDefault()
-      Signup.postSignupForm(
-        e.target['first'].value,
-        e.target['last'].value,
-        e.target['email'].value,
-        e.target['phone'].value,
-        e.target['address'].value,
-        e.target['password'].value
-      )
-      return false
-    })
-  }
+  static postSignupForm() {
+    signupBox.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formElem = document.getElementById("signupBox")
 
-  static postSignupForm(first, last, email, phone, address, password) {
+      const formData = new FormData(formElem)
 
-    let configObj = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-
-      body: JSON.stringify({    
-        user: {
-          first,
-          last,
-          email,
-          phone,
-          address, 
-          password
-        }  
-      })
-    };
-    fetch(signupUrl, configObj)
-      .then((response) => response.json())
+      let configObj = {
+        method: "POST",
+        body: formData
+      }
+      
+      await fetch(signupUrl, configObj)
+      .then((resp) => await resp.json())
       .then((data) => {
-        localStorage.setItem("token", data.jwt)
-        localStorage.setItem("id", data.user.id)
+        console.log(data)
       })
-      document.getElementsByClassName("signupModal")[0].style.display = "none";
-      document.getElementById("notSignedIn").style.display = "none"
-      document.getElementById("signedIn").style.display = "block"
-      document.getElementById("profileModal").style.display = "none"
+      .catch((err) => {
+        console.log(err, "failed")
+      })
+    })
+    document.getElementsByClassName("signupModal")[0].style.display = "none";
+    document.getElementById("notSignedIn").style.display = "none"
+    document.getElementById("signedIn").style.display = "block"
+    document.getElementById("profileModal").style.display = "none"
   }
 }
+

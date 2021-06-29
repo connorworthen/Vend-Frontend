@@ -1,13 +1,14 @@
 const readUrl = "http://localhost:3000/users";
 
 class Profile {
-  constructor(first, last, email, phone, address, password, id) {
+  constructor(first, last, email, phone, address, password, avatar, id) {
     this.first = first
     this.last = last
     this.email = email
     this.phone = phone
     this.address = address
     this.password = password
+    this.avatar = avatar
     this.id = id
   }
 
@@ -46,6 +47,8 @@ class Profile {
         <input type="text" id="address" value=${userData.address} />
 
         <input type="password" id="password" value=${userData.password} />
+
+        <input type="image" id="image" value=${userData.avatar} />
 
         <input type="submit" id="patchBox" value="Update Account" />
       </form>
