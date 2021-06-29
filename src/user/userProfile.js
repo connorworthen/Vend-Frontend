@@ -31,23 +31,24 @@ class Profile {
 
   static displayForm(userData) {
     document.getElementsByClassName("profileBox")[0].innerHTML = `
-        <form id="profileForm">
-                <div class="closeProfile">&times;</div>
-                  <h2>Update Profile</h2>                               
-                  <input type="text" id="first" value=${userData.first} />
+      <form id="profileForm">
+        <div class="closeProfile">&times;</div>
+        <h2>Update Profile</h2> 
 
-                  <input type="text" id="last" value=${userData.last} />
+        <input type="text" id="first" value=${userData.first} />
 
-                  <input type="text" id="email" value=${userData.email} />
+        <input type="text" id="last" value=${userData.last} />
 
-                  <input type="text" id="phone" value=${userData.phone} />
+        <input type="text" id="email" value=${userData.email} />
 
-                  <input type="text" id="address" value=${userData.address} />
+        <input type="text" id="phone" value=${userData.phone} />
 
-                  <input type="password" id="password" value=${userData.password} />
+        <input type="text" id="address" value=${userData.address} />
 
-                  <input type="submit" id="patchBox" value="Update Account" />
-              </form>
+        <input type="password" id="password" value=${userData.password} />
+
+        <input type="submit" id="patchBox" value="Update Account" />
+      </form>
       `
       document.querySelector(".closeProfile").onclick = () => {
         document.getElementsByClassName("profileModal")[0].style.display = "none";

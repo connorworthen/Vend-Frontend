@@ -59,7 +59,11 @@ class Signup {
       .then((response) => response.json())
       .then((data) => {
         localStorage.setItem("token", data.jwt)
+        localStorage.setItem("id", data.user.id)
       })
       document.getElementsByClassName("signupModal")[0].style.display = "none";
+      document.getElementById("notSignedIn").style.display = "none"
+      document.getElementById("signedIn").style.display = "block"
+      document.getElementById("profileModal").style.display = "none"
   }
 }
