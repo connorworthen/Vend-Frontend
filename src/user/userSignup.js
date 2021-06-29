@@ -14,28 +14,29 @@ class Signup {
   static postSignupForm() {
     signupBox.addEventListener('submit', async (e) => {
       e.preventDefault();
-      const formElem = document.getElementById("signupBox")
+      try {
+        const formElem = document.getElementById("signupBox")
 
-      const formData = new FormData(formElem)
+        const formData = new FormData(formElem)
 
-      let configObj = {
-        method: "POST",
-        body: formData
-      }
+        let configObj = {
+          method: "POST",
+          body: formData
+        }
       
-      await fetch(signupUrl, configObj)
-      .then((resp) => await resp.json())
-      .then((data) => {
-        console.log(data)
-      })
-      .catch((err) => {
-        console.log(err, "failed")
-      })
+        const response = await fetch(signupUrl, configObj)
+        const payload = await response.json()
+        console.log(payload, "success")
+      } catch (e) {
+        console.log(e, "failed")
+      }
     })
-    document.getElementsByClassName("signupModal")[0].style.display = "none";
-    document.getElementById("notSignedIn").style.display = "none"
-    document.getElementById("signedIn").style.display = "block"
-    document.getElementById("profileModal").style.display = "none"
   }
 }
+
+
+// document.getElementsByClassName("signupModal")[0].style.display = "none";
+//     document.getElementById("notSignedIn").style.display = "none"
+//     document.getElementById("signedIn").style.display = "block"
+//     document.getElementById("profileModal").style.display = "none"
 
