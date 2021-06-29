@@ -15,7 +15,7 @@ class Profile {
     let id = localStorage.getItem("id")
 
     fetch(`http://localhost:3000/users/${id}`)
-      .then((response) => response.json())
+      .then((resp) => resp.json())
       .then((data) => {
         let userData = data
         Profile.displayForm(userData)
@@ -90,9 +90,9 @@ class Profile {
           password
         }  
       })
-    };
+    }
     fetch(`http://localhost:3000/users/${id}`, configObj)
-      .then((response) => response.json())
+      .then((resp) => resp.json())
       .then((data) => {
         console.log("hello", data)
       })
