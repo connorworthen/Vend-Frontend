@@ -4,4 +4,5 @@ document.addEventListener("DOMContentLoaded", () => {
   Signup.signupHandler();
   Signin.signinHandler();
   Profile.profileHandler()
+  Store.clickStore()
 });

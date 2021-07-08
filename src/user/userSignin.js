@@ -39,7 +39,7 @@ class Signin {
         const formData = new FormData(formElem)
 
         const obj = {}
-        formData.forEach((value, key) => obj[key] = value);
+        formData.forEach((value, key) => obj[key] = value)
         const data = JSON.stringify({user: obj})
 
         let configObj = {
@@ -47,7 +47,6 @@ class Signin {
           headers: {
             'Content-Type': 'application/json'
           },
-            
           body: data 
         };
 
