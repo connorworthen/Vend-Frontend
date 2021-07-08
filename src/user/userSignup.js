@@ -26,8 +26,9 @@ class Signup {
       
         const response = await fetch(signupUrl, configObj)
         const payload = await response.json()
-        localStorage.setItem("token", payload.jwt)
-        localStorage.setItem("id", payload.user.id)
+          console.log(payload)
+          localStorage.setItem("token", payload.jwt)
+          localStorage.setItem("id", payload.user.id)
         Signup.signedInView()
       } catch (err) {
         console.log(err)

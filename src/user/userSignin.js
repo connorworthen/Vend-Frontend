@@ -2,12 +2,6 @@ const signinUrl = "http://localhost:3000/login";
 const autoUrl = "http://localhost:3000/auto_login"
 
 class Signin {
-  constructor(email, password, id) {
-    this.email = email
-    this.password = password
-    this.id = id
-  }
-
   static signedInCheck() {
     const token = localStorage.getItem("token")
     if (token) {
@@ -32,47 +26,45 @@ class Signin {
     document.querySelector(".closeSigninForm").onclick = () => {
       document.getElementsByClassName("signinModal")[0].style.display = "none";
     }
-    Signin.submitHandler();
+    Signin.postSigninForm()
   }
 
-  static submitHandler() {
-    signinBox.addEventListener('submit', (e) => {
+  static postSigninForm() {
+    signinBox.addEventListener('submit', async (e) => {
       e.preventDefault()
-      Signin.postSigninForm(
-        e.target['email'].value,
-        e.target['password'].value
-      )
-      return false
+
+      try {
+        const formElem = document.getElementById("signinBox")
+
+        const formData = new FormData(formElem)
+
+        const obj = {}
+        formData.forEach((value, key) => obj[key] = value);
+        const data = JSON.stringify({user: obj})
+
+        let configObj = {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+            
+          body: data 
+        };
+
+        const response = await fetch(signinUrl, configObj)
+        const payload = await response.json()
+        localStorage.setItem("token", payload.jwt)
+        localStorage.setItem("id", payload.user.id)
+        Signin.signedInProfile()
+      } catch (err) {
+        console.log(err)
+        alert("Error. Set up Alert Messages")
+      }
     })
   }
 
-  static postSigninForm(email, password) {
-  
-    let configObj = {
-      method: "POST",
-      headers: {
-        'Content-Type': 'application/json'
-      },
-            
-      body: JSON.stringify({    
-        user: {
-          email,
-          password
-        }    
-      })  
-    };
-
-    fetch(signinUrl, configObj) 
-      .then((response) => response.json())
-      .then((data) => {
-        localStorage.setItem("token", data.jwt)
-        localStorage.setItem("id", data.user.id)
-      })
-      document.getElementsByClassName("signinModal")[0].style.display = "none";
-      Signin.signedInProfile()
-  }
-
   static signedInProfile() {
+    document.getElementsByClassName("signinModal")[0].style.display = "none";
     document.getElementById("notSignedIn").style.display = "none"
     document.getElementById("signedIn").style.display = "block"
     document.getElementById("profileModal").style.display = "none"
