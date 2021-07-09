@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="signin.css" />
     <link rel="stylesheet" href="navbar.css" />
     <link rel="stylesheet" href="profile.css" />
+    <link rel="stylesheet" href="body.css" />
   </head>
 
     <nav class="navbar">
@@ -94,7 +95,19 @@
   </nav>
 
   <body id="test">
-    <button id="createStore">create store</button>
+    <button id="storeButton">create store</button>
+    <div id="createStore">
+      <form id="createStoreForm">
+
+            <input type="text" id="companyName" placeholder="Company Name" />
+
+            <input type="text" id="companyEmail" placeholder="Company Email" />
+
+            <textarea id="description" rows="10" cols="50"></textarea>
+
+            <input type="submit" placeholder="Submit" />
+          </form>
+    </div>
   </body>
 
   <script src="src/user/userSignup.js"></script>
