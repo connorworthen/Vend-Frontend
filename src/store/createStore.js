@@ -18,10 +18,14 @@ class Store {
 
         const formData = new FormData(formElem)
 
+        const userId = localStorage.getItem("id")
+        
+        formData.append('user_id', userId)
+
         const obj = {}
         formData.forEach((value, key) => obj[key] = value)
         const data = JSON.stringify({store: obj})
-        debugger
+      
         let configObj = {
           method: "POST",
           headers: {
