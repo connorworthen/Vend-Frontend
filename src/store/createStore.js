@@ -1,46 +1,20 @@
-const createStoreUrl = "http://localhost:3000/stores"
-
 class Store {
-
-  static clickStore () {
-    storeButton.addEventListener('click', () => {
-      document.getElementById("createStore").style.display = "block"
-      document.getElementById("storeButton").style.display = "none"
-    })
-    Store.postClickStore()
+  constructor(id, company_name, company_email, description) {
+    this.id = id,
+    this.company_name = company_name,
+    this.company_email = company_email,
+    this.description = description
   }
 
-  static postClickStore () {
-    createStoreForm.addEventListener('submit', async (e) => {
-      e.preventDefault()
-      try {
-        const formElem = document.getElementById("createStoreForm")
+  renderStore() {
+    let storesDiv = document.getElementById("stores-container")
 
-        const formData = new FormData(formElem)
-
-        const userId = localStorage.getItem("id")
-        
-        formData.append('user_id', userId)
-
-        const obj = {}
-        formData.forEach((value, key) => obj[key] = value)
-        const data = JSON.stringify({store: obj})
-      
-        let configObj = {
-          method: "POST",
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: data 
-        };
-
-        const response = await fetch(createStoreUrl, configObj)
-        const payload = await response.json()
-        console.log(payload)
-      } catch (err) {
-        console.log(err)
-        alert("Error. Set up Alert Messages")
-      }
-    })
+    storesDiv.innerHTML += 
+    `
+    <ul>
+    <h3>Company Name: ${this.company_name}</h3>
+    <li>Company Email: ${this.company_email} - ${this.description}</li>
+    </ul>
+    `
   }
 }
