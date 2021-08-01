@@ -1,23 +1,20 @@
 document.addEventListener("DOMContentLoaded", () => {
-  // Signin.signedInCheck();
-  // Logout.logoutMethod();
-  // Signup.signupHandler();
-  // Signin.signinHandler();
-  // Profile.profileHandler()
-  // Store.clickStore()
-  fetchStores()
+  fetchUsers()
 })
 
 const BASE_URL = "http://localhost:3000"
 
-function fetchStores() {
-  fetch(`${BASE_URL}/stores`)
+function fetchUsers() {
+  fetch(`${BASE_URL}/users`)
   .then(resp => resp.json())
-  .then(stores => {
-
-    for (const store of stores) {
-      let s = new Store(store.id, store.company_name, store.company_email, store.description)
-      s.fetchStores()
-    }
+  .then(users => {
+      for (const user of users) {
+        let u = new User(user.id, user.username, user.email, user.image)
+        u.renderUser()
+      }
   })
+}
+
+function createUser() {
+
 }
