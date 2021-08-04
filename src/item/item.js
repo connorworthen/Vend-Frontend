@@ -2,6 +2,7 @@ class Item {
   // remember objects
   static all = []
   static itemsContainer = document.getElementById("items-container")
+  static itemForm = document.getElementById("form-container")
   constructor({id, image, name, price, available, description, user_id}) {
     this.id = id
     this.image = image
@@ -31,5 +32,17 @@ class Item {
 
   pushToDOM() {
     Item.itemsContainer.appendChild(this.itemHTML())
+  }
+
+  static renderForm() {
+    Item.itemForm.innerHTML += `
+      <form>
+        Name: <input type="text" id="name">
+        Price: <input type="text" id="price">
+        Description: <input type="text" id="description">
+        Image: <input type="file" name="image">
+        <input type="submit" id="submit">
+      </form>
+    `
   }
 }

@@ -1,10 +1,13 @@
 // any global variables
 const BASE_URL = "http://localhost:3000"
 const itemService = new ItemService(BASE_URL)
-
+Item.itemForm.addEventListener('submit', handleSubmit())
 itemService.fetchItems()
+Item.renderForm()
 
-console.log(Item.all)
+function handleSubmit() {
+  debugger
+}
 
 
 
