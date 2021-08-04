@@ -1,17 +1,13 @@
 const signupUrl = "http://localhost:3000/users";
 
 class Signup {
-  static signupHandler() {
-    signupButton.addEventListener('click', () => {
-      document.getElementsByClassName("signupModal")[0].style.display = "block"
+  signupHandler() {
+    signupbutton.addEventListener('click', () => {
+      console.log("hello")
     })
-    document.querySelector(".closeForm").onclick = () => {
-      document.getElementsByClassName("signupModal")[0].style.display = "none";
-    }
-    Signup.postSignupForm()
   }
 
-  static postSignupForm() {
+  postSignupForm() {
     signupBox.addEventListener('submit', async (e) => {
       e.preventDefault();
       try {
@@ -29,7 +25,7 @@ class Signup {
           console.log(payload)
           localStorage.setItem("token", payload.jwt)
           localStorage.setItem("id", payload.user.id)
-        Signup.signedInView()
+        signedInView()
       } catch (err) {
         console.log(err)
         alert("Error. Set up Alert Messages")
@@ -37,7 +33,7 @@ class Signup {
     })
   }
 
-  static signedInView() {
+  signedInView() {
     document.getElementsByClassName("signupModal")[0].style.display = "none";
     document.getElementById("notSignedIn").style.display = "none"
     document.getElementById("signedIn").style.display = "block"

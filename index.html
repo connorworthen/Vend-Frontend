@@ -9,101 +9,14 @@
       src="https://kit.fontawesome.com/e0e9acc72f.js"
       crossorigin="anonymous"
     ></script>
-    <link rel="stylesheet" href="signup.css" />
-    <link rel="stylesheet" href="signin.css" />
-    <link rel="stylesheet" href="navbar.css" />
-    <link rel="stylesheet" href="profile.css" />
-    <link rel="stylesheet" href="body.css" />
   </head>
 
-    <nav class="navbar">
-      <div class="navbar-center">
-
-      <div class="nav-sidebar">
-        <span style="font-size:30px;cursor:pointer">&#9776;</span>
-      </div>
-
-      <div class="nav-logo">
-        <h1 class="center-logo">Vend</h1>
-      </div>
-
-      <div id="buttons">
-        <div id="notSignedIn">
-          <button id="signupButton">Sign up</button>
-
-          <button id="signinButton">Sign in</button>
-        </div>
-
-        <div id="signedIn">
-          <div class="dropdown">
-            <span class="dropbtn" id="test"><i class="fas fa-user-circle"></i></span>
-
-                <div class="dropdown-content">
-                  <a id="profileBtn">Profile</a>
-                  <a id="logout">Logout</a>
-                </div>
-          </div>
-
-          <div id="profileModal" class="profileModal">
-            <div id="profileModal" class="profileBox">
-            </div>
-          </div>
-        </div>
-  
-      </div>
-
-    <div class="signupModal">
-      <div class="signupForm">
-        <form class="signupBox" id="signupBox">
-          <div class="closeForm">&times;</div>
-          <h2 class="formTitle">Welcome, sign up below!</h2>
-
-            <input type="text" id="first" name="first" placeholder="First Name *" />
-
-            <input type="text" id="last" name="last" placeholder="Last Name *"/>
-
-            <input type="text" id="email" name="email" placeholder="Email *" />
-
-            <input type="text" id="phone" name="phone" placeholder="Phone Number *" />
-
-            <input type="text" id="address" name="address" placeholder="Address *" />
-
-            <input type="password" id="password" name="password" placeholder="Password *" />
-
-            <input type="file" id="avatar" name="avatar" />
-          
-            <input type="submit" id="form-box" value="Create Account" />
-        </form>
-      </div>
-    </div>
-
-
-    <div class="signinModal">
-      <div class="signinForm">
-        <form class="signinBox" id="signinBox">
-          <div class="closeSigninForm">&times;</div>
-          <h2 class="form-title-signin">Welcome back! Sign in below EMAIL 1 AND PASSWORD 1</h2>
-
-          <input type="text" id="email" name="email"/> 
-
-          <input type="password" id="password" name="password" />
-
-          <input type="submit" class="form-button-signin" value="Login" />
-        </form>
-      </div>
-    </div>
-  </nav>
-
   <body>
-    <div id="users-container">
-    
-    </div>
-  </body>
+    <div id="items-container"></div>
 
-  <script src="src/user/userSignup.js"></script>
-  <script src="src/user/userSignin.js"></script>
-  <script src="src/user/userLogout.js"></script>
-  <script src="src/user/userProfile.js"></script>
-  <script src="src/user/user.js"></script>
-  <script src="src/index.js"></script>
+    <script src="src/user/user.js"></script>
+    <script src="src/item/itemService.js"></script>
+    <script src="src/item/item.js"></script>
+    <script src="src/index.js"></script>
+  </body>
 </html>
