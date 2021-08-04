@@ -3,12 +3,11 @@ class Item {
   static all = []
   static itemsContainer = document.getElementById("items-container")
   static itemForm = document.getElementById("form-container")
-  constructor({id, image, name, price, available, description, user_id}) {
+  constructor({id, image, name, price, description, user_id}) {
     this.id = id
     this.image = image
     this.name = name
     this.price = price
-    this.available = available
     this.description = description
     this.user_id = user_id
 
