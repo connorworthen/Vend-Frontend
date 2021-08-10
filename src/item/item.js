@@ -35,12 +35,24 @@ class Item {
 
   static renderForm() {
     Item.itemForm.innerHTML += `
-      <form>
-        Name: <input type="text" id="name">
-        Price: <input type="text" id="price">
-        Description: <input type="text" id="description">
-        Image: <input type="file" name="image">
-        <input type="submit" id="submit">
+      <form id="myForm" name="myForm">
+        <div>
+          <label for="name">Enter name:</label>
+          <input type="text" id="name" name="name">
+        </div>
+        <div>
+          <label for="price">Enter Price:</label>
+          <input type="text" id="price" name="price">
+        </div>
+        <div>
+          <label for="description">Description:</label>
+          <input type="text" id="description" name="description">
+        </div>
+        <div>
+          <label for="image">Upload file:</label>
+          <input type="file" id="image" name="image">
+        </div>
+          <input type="submit" value="Submit">
       </form>
     `
   }
