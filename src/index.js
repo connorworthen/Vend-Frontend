@@ -8,6 +8,7 @@ Item.renderForm()
 function handleSubmit() {
   event.preventDefault()
   itemService.createItem()
+  event.target.reset()
   // debugger
 }
 
