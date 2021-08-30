@@ -4,6 +4,7 @@ const itemService = new ItemService(BASE_URL)
 Item.itemForm.addEventListener('submit', handleSubmit)
 itemService.fetchItems()
 Item.renderForm()
+User.renderUserForm()
 
 function handleSubmit() {
   event.preventDefault()

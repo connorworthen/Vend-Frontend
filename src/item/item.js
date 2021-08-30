@@ -37,7 +37,7 @@ class Item {
     Item.itemForm.innerHTML += `
       <form id="myForm" name="myForm">
         <div>
-          <label for="name">Enter name:</label>
+          <label for="name">Enter Item Name:</label>
           <input type="text" id="name" name="name">
         </div>
         <div>
